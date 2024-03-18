@@ -1,0 +1,18 @@
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect('mongodb+srv://samsamcoste:mXekpE51GJnG5bF8@cluster0.xjc6mfs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true
+    });
+    console.log('MongoDB Connected...');
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
